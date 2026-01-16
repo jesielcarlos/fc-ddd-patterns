@@ -3,10 +3,13 @@
  * https://jestjs.io/docs/configuration
  */
 
-export default {
+module.exports = {
   transform: {
-    "^.+\.(t|j)sx?$": ["@swc/jest"],
-    
+    "^.+\\.(t|j)sx?$": ["@swc/jest"],
+  },
+  moduleNameMapper: {
+    "^node:process$": "<rootDir>/test/process-shim.js",
+    "^node:(.*)$": "$1",
   },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
